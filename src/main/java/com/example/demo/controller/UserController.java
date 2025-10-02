@@ -1,9 +1,9 @@
+// File: src/main/java/com/example/demo/controller/UserController.java
 package com.example.demo.controller;
 
-import com.example.demo.model.User;
+import com.example.demo.model.AppUser; // ⬅️ Import the new entity class
 import com.example.demo.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -16,12 +16,12 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getUsers() {
+    public List<AppUser> getUsers() { // ⬅️ Use AppUser
         return userRepository.findAll();
     }
 
     @PostMapping
-    public User addUser(@RequestBody User user) {
+    public AppUser addUser(@RequestBody AppUser user) { // ⬅️ Use AppUser
         return userRepository.save(user);
     }
 }
